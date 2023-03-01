@@ -1,0 +1,10 @@
+version: "3"
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_DB: "postgres_awe"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "docker"
+    ports:
+      - "5432:5432"
