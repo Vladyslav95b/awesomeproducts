@@ -1,0 +1,19 @@
+// import assets
+$asset-base-path: '~assets' !default;
+
+@mixin font-face($font-family, $folder-name, $font-name, $font-weight: 400) {
+  @font-face {
+    font-family: '#{$font-family}';
+    font-style: normal;
+    font-weight: $font-weight;
+    src: local('../#{$font-name}'),
+    url('../fonts/#{$folder-name}/#{$font-name}.woff') format('woff');
+    font-display: swap;
+  }
+}
+
+@mixin body {
+  font-family: $font-source;
+  font-size: 16px;
+  font-weight: 400;
+}
