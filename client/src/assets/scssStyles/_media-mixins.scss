@@ -1,0 +1,34 @@
+@import 'variables';
+
+@function translate-media-condition($c) {
+  $cond-map: (
+    'S': '(min-width: #{$S})',
+    'M': '(min-width: #{$M})',
+    'L': '(min-width: #{$L})',
+    'XL': '(min-width: #{$XL})',
+    'XXL': '(min-width: #{$XXL})',
+    'MOBILE': '(max-width: #{$M - 1px})',
+    'TABLET': '(max-width: #{$L - 1px})',
+    'DESKTOP': '(max-width: #{$XL - 1px})',
+  );
+  $result: map-get($cond-map, $c);
+  @if not $result {
+    $result: $c;
+  }
+  @return $result;
+}
+
+@mixin media($args...) {
+  $query: '';
+  @each $arg in $args {
+    $op: '';
+    @if  $query != '' {
+      $op: ' and ';
+    }
+
+    $query: $query + $op + translate-media-condition($arg);
+  }
+  @media #{$query} {
+    @content;
+  }
+}

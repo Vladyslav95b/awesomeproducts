@@ -1,0 +1,13 @@
+@import '../../../assets/scssStyles/index.scss';
+
+.header {
+    background-color: $blue;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    &__actions {
+        justify-content: flex-end;
+        display: flex;
+        gap: 20px;
+    }
+}

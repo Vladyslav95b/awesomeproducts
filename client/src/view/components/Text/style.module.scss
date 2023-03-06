@@ -1,0 +1,6 @@
+@import '../../../assets/scssStyles/index.scss';
+
+.Button-Text {
+    @include button-text;
+
+}

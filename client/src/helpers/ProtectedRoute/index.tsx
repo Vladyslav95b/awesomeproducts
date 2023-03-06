@@ -1,17 +1,20 @@
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { ClientRoutes } from "../../router/Routes";
+import CLIENT_ROUTES from '../../routes/Routes';
+import { RootState } from "../../store";
 
-interface IProtected {
-  children: JSX.Element;
-}
+import { IProtected } from '../../types/HelpersTypes';
 
-export function Protected({ children }: IProtected) {
-  const isLoggedIn = useSelector((state: any) => state.auth.isAuth);
+function ProtectedRoute({ children }: IProtected) {
+  const isLoggedIn = useSelector(
+    (state: RootState) => state.authReducer.isAuth,
+  ) || false;
 
   if (!isLoggedIn) {
-    return <Navigate to={ClientRoutes.signIn} replace />;
+    return <Navigate to={`/${CLIENT_ROUTES.SING_IN}`} replace />;
   }
   return children;
 }
+
+export default ProtectedRoute;
