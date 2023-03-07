@@ -6,7 +6,7 @@ import styles from './style.module.scss';
 export interface ButtonPropTypes {
     buttonType?: 'submit' | 'reset' | 'button';
     title?: string;
-    type: 'auth' | 'primary' | 'secondary';
+    type: 'auth' | 'primary' | 'secondary' | 'cart-btn';
     disabled?: boolean;
     loading?: boolean;
     onClick?: (event?: MouseEvent<HTMLButtonElement>) => void;

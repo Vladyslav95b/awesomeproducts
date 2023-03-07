@@ -7,7 +7,7 @@ import mockImage from '../../../assets/images/pokeBall.png';
 import style from './style.module.scss';
 import { CardProps } from '../../../types/GridCardPropTypes';
 import Button from '../../components/Button';
-import { addItem } from '../../../store/slices/cartSlice';
+import { addToCart } from '../../../store/slices/cartSlice';
 import { useDispatch } from 'react-redux';
 
 const PokemonDetails = () => {
@@ -19,7 +19,7 @@ const PokemonDetails = () => {
         https(`/api/pokemon/${id}`).then((res) => setData(res.data));
     }, [id]);
      function handleAddToCard() {
-        dispatch(addItem({id: id, price: data?.price }))
+        dispatch(addToCart(data))
      }
     if (data) {
         return (

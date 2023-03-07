@@ -11,6 +11,7 @@ import Layout from '../view/components/Layout';
 import Pokemon from '../view/pages/Pokemons';
 import PokemonDetails from '../view/pages/PokemonDetails';
 import Profile from '../view/pages/Profile';
+import Cart from '../view/pages/Cart';
 
 export function AppRouter() {
     return (
@@ -54,6 +55,14 @@ export function AppRouter() {
                     element={
                         <ProtectedRoute>
                             <PokemonDetails />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={CLIENT_ROUTES.CART}
+                    element={
+                        <ProtectedRoute>
+                            <Cart />
                         </ProtectedRoute>
                     }
                 />
