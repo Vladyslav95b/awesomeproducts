@@ -13,13 +13,13 @@ services:
   api:
     build:
       dockerfile: Dockerfile
-      context: ./api
+      context: ./server
     depends_on:
       - postgres
     ports:
       - "5000:5000"
     volumes:
-      - ./api:/app
+      - ./server:/app
       - /app/node_modules
     environment:
       - POSTGRES_HOST=postgres
