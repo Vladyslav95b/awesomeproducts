@@ -9,7 +9,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./datebase/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+      - ./database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
   api:
     build:
       dockerfile: Dockerfile
