@@ -1,5 +1,5 @@
 import { JwtService } from '@nestjs/jwt';
-import { UserDto } from '@root/user/dto/user.dto';
+import { UserDto } from '../user/dto/user.dto';
 export declare class AuthService {
     private readonly jwtService;
     private logger;

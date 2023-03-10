@@ -2,10 +2,10 @@ import { forwardRef, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthController } from '@root/auth/auth.controller';
-import { JwtAuthGuard } from '@root/auth/guards/jwt-auth.guard';
-import { JwtStrategy } from '@root/auth/strategies/jwt.strategy';
-import { User } from '@root/user/entities/user.entity';
+import { AuthController } from './auth.controller';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
+import { JwtStrategy } from './strategies/jwt.strategy';
+import { User } from '../user/entities/user.entity';
 import { UserModule } from '../user/user.module';
 import { AuthService } from './auth.service';
 

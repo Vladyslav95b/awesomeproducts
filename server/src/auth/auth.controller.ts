@@ -1,18 +1,7 @@
-import {
-  Body,
-  Controller,
-  Get,
-  HttpCode,
-  Logger,
-  Post,
-  Put,
-  Req,
-  UseGuards,
-} from '@nestjs/common';
-import { JwtAuthGuard } from '@root/auth/guards/jwt-auth.guard';
-import { CreateUserDto } from '@root/user/dto/create-user.dto';
-import { LoginUserDto } from '@root/user/dto/login-user.dto';
-import { UserService } from '@root/user/user.service';
+import { Body, Controller, HttpCode, Logger, Post, Put } from '@nestjs/common';
+import { CreateUserDto } from '../user/dto/create-user.dto';
+import { LoginUserDto } from '../user/dto/login-user.dto';
+import { UserService } from '../user/user.service';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
@@ -25,7 +14,6 @@ export class AuthController {
 
   @Put('signup')
   create(@Body() createUserDto: CreateUserDto) {
-    console.log(createUserDto);
     return this.userService.createUser(createUserDto);
   }
 

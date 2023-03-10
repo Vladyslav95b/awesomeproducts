@@ -1,4 +1,4 @@
-import { RoleEnumType } from '@root/user/entities/user.entity';
+import { RoleEnumType } from '../entities/user.entity';
 import {
   IsBoolean,
   IsEmail,

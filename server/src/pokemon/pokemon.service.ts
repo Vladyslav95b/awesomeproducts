@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Pokemon } from '@root/pokemon/entities/pokemon.entity';
+import { Pokemon } from './entities/pokemon.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()

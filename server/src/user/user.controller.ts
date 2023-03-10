@@ -1,6 +1,6 @@
 import { Controller, Get, Param, UseGuards, Req } from '@nestjs/common';
 import { UserService } from './user.service';
-import { JwtAuthGuard } from '@root/auth/guards/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('user')
 export class UserController {
@@ -14,14 +14,13 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard)
   @Get('/me')
-  findMe(@Req() req) {
+  findMe(@Req() req: any) {
     return this.userService.getByUsername(req.user.username);
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('/:username')
-  findByName(@Param('username') username: string, @Req() req) {
-    console.log(req.user);
+  findByName(@Param('username') username: string) {
     return this.userService.getByUsername(username);
   }
 }

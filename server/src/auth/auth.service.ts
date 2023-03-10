@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserDto } from '@root/user/dto/user.dto';
+import { UserDto } from '../user/dto/user.dto';
 import * as bcrypt from 'bcrypt';
 
 const saltRounds = 12;

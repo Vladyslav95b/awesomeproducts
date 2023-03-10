@@ -1,4 +1,4 @@
-import { Pokemon } from '@root/pokemon/entities/pokemon.entity';
+import { Pokemon } from './entities/pokemon.entity';
 import { Repository } from 'typeorm';
 export declare class PokemonService {
     private pokemonEntity;

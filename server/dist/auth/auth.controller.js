@@ -25,7 +25,6 @@ let AuthController = class AuthController {
         this.logger = new common_1.Logger('UserController');
     }
     create(createUserDto) {
-        console.log(createUserDto);
         return this.userService.createUser(createUserDto);
     }
     login(loginUserDto) {
