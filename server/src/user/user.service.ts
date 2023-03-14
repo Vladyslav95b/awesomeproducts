@@ -8,6 +8,7 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class UserService {
+  // TODO move to constructor
   private logger = new Logger('UserService');
   constructor(
     @InjectRepository(User)
@@ -15,18 +16,15 @@ export class UserService {
     private authService: AuthService,
   ) {}
 
-  private findUserByEmail(email: string) {
+  async findUserByEmail(email: string) {
     return this.userEntity.findOne({ where: { email } });
   }
 
-  private validatePassword(
-    password: string,
-    storedPasswordString: string,
-  ): boolean {
+  validatePassword(password: string, storedPasswordString: string): boolean {
     return this.authService.comparePasswords(password, storedPasswordString);
   }
 
-  private async mailExists(email: string): Promise<boolean> {
+  async mailExists(email: string): Promise<boolean> {
     const user = await this.userEntity.findOne({ where: { email } });
     if (user) {
       return true;

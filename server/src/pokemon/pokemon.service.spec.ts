@@ -17,8 +17,8 @@ describe('PokemonService', () => {
         {
           provide: POKEMON_ENTITY_TOKEN,
           useValue: {
-            getAll: jest.fn(),
-            getById: jest.fn(),
+            find: jest.fn(),
+            findOne: jest.fn(),
           },
         },
       ],
@@ -34,5 +34,21 @@ describe('PokemonService', () => {
 
   it('pokemon entity should be defined', async () => {
     expect(pokemonEntity).toBeDefined();
+  });
+  it('should call all pokemon', () => {
+    jest
+      .spyOn(pokemonEntity, 'find')
+      .mockImplementation(async () => (await [{}]) as Pokemon[]);
+    service.getAll();
+    expect(pokemonEntity.find).toBeCalled();
+  });
+
+  it('should get pokemon by id', async () => {
+    jest
+      .spyOn(pokemonEntity, 'findOne')
+      .mockImplementation(async () => (await { id: 1 }) as Pokemon);
+
+    const data = await service.getById(1);
+    expect(data).toEqual({ id: 1 });
   });
 });
